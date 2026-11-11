@@ -1710,8 +1710,9 @@
     #toast{background:#161617;border:1px solid #2c2c2e;color:#f4f4f5;box-shadow:0 12px 30px rgba(0,0,0,.5);font-size:12px}
     /* ---------- 平板 / 手机：主区单列、播放器在上（照稿手机舞台 .v7） ---------- */
     @media (max-width:900px){
-      header{flex-direction:row;align-items:center;flex-wrap:wrap;gap:8px}
-      .header-controls{width:auto;margin-left:auto;justify-content:flex-end}
+      header{flex-direction:row;align-items:center;flex-wrap:nowrap;gap:8px}
+      .header-controls{width:auto;margin-left:auto;justify-content:flex-end;flex:0 0 auto}
+      .logo-area{min-width:0;flex:0 1 auto}
       html,body{height:auto;overflow-x:hidden;overflow-y:auto}
       .app{height:auto;min-height:calc(100dvh - 24px);width:calc(100% - 24px);margin:12px auto}
       .layout{
@@ -1729,8 +1730,17 @@
     }
     @media (max-width:560px){
       .playlist-panel{top:0}
-      .title-text h1{font-size:16px}
-      #flip-header-btn{padding:0 10px;font-size:12px}
+      /* 手机端顶栏单行：LOGO与四个按钮同行放下，不换行 */
+      header{flex-wrap:nowrap;gap:6px;padding:10px 10px}
+      .logo-area{gap:6px;min-width:0}
+      .pikachu-box{width:32px;height:32px;border-radius:8px}
+      .title-text h1{font-size:14px}
+      .title-domain{font-size:10px}
+      .header-controls{gap:6px;flex:0 0 auto}
+      .shortcut-toggle-btn,.wechat-btn,.kbd-btn,.site-icon-btn{width:32px;height:32px;border-radius:8px}
+      .site-icon-btn svg{width:18px;height:18px}
+      #flip-header-btn{width:32px;height:32px;min-height:32px;padding:0;font-size:12px;gap:0}
+      #flip-header-btn .flip-label{display:none}
     }
     @media (prefers-reduced-motion: reduce){
       .playlist-panel{transition:none}
